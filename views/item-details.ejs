@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Item Details</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+    <div class="details-container">
+
+        <div class="details-card">
+
+            <img
+                src="/uploads/<%= item.image %>"
+                alt="item"
+            >
+
+            <div class="details-content">
+
+                <h1>
+                    <%= item.item_name %>
+                </h1>
+
+                <p>
+                    <strong>Category:</strong>
+                    <%= item.category %>
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    <%= item.location %>
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    <%= item.status %>
+                </p>
+
+                <p>
+                    <strong>Description:</strong>
+                    <%= item.description %>
+                </p>
+
+                <br>
+
+                <a href="/chat/<%= item.user_id %>/<%= item.id %>">
+
+    <button>
+        Message Owner
+    </button>
+
+</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

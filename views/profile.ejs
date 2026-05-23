@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Profile</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="profile-container">
+
+    <!-- PROFILE CARD -->
+
+    <div class="profile-card">
+
+        <% if(user.profile_photo){ %>
+
+            <img
+                src="/uploads/<%= user.profile_photo %>"
+                class="profile-img"
+            >
+
+        <% } else { %>
+
+            <img
+                src="https://via.placeholder.com/150"
+                class="profile-img"
+            >
+
+        <% } %>
+
+        <h1><%= user.name %></h1>
+
+        <p><%= user.email %></p>
+
+        <p>
+            <strong>Department:</strong>
+            <%= user.department || "Not Added" %>
+        </p>
+
+        <p>
+            <strong>Year:</strong>
+            <%= user.student_year || "Not Added" %>
+        </p>
+
+        <p>
+            <strong>Bio:</strong>
+            <%= user.bio || "No Bio Yet" %>
+        </p>
+
+    </div>
+
+    <!-- UPDATE PROFILE -->
+
+    <div class="profile-form">
+
+        <form
+            action="/update-profile"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            <h2>Update Profile</h2>
+
+            <input
+                type="file"
+                name="profile_photo"
+            >
+
+            <textarea
+                name="bio"
+                placeholder="Write your bio..."
+            ></textarea>
+
+            <input
+                type="text"
+                name="department"
+                placeholder="Department"
+            >
+
+            <input
+                type="text"
+                name="student_year"
+                placeholder="Year"
+            >
+
+            <select name="contact_visibility">
+
+                <option value="Public">
+                    Public
+                </option>
+
+                <option value="Private">
+                    Private
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Save Profile
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- USER ITEMS -->
+
+<div class="container">
+
+    <h1>Your Uploaded Items</h1>
+
+    <div class="card-container">
+
+        <% items.forEach(item => { %>
+
+            <div class="item-card">
+
+                <img
+                    src="/uploads/<%= item.image %>"
+                >
+
+                <h2><%= item.item_name %></h2>
+
+                <p><%= item.status %></p>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

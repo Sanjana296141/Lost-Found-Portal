@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Notifications</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="container">
+
+    <h1>Notifications 🔔</h1>
+
+    <div class="notification-box">
+
+        <% notifications.forEach(note => { %>
+
+            <div class="single-note">
+
+                <p>
+                    <%= note.message %>
+                </p>
+
+                <span>
+
+                    <%= new Date(note.created_at)
+                    .toLocaleString() %>
+
+                </span>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

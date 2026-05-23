@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+    <div class="container">
+
+        <div class="hero">
+
+            <h1>
+                Welcome, <%= user.name %> 👋
+            </h1>
+
+            <p>
+                Manage lost and found items easily.
+            </p>
+
+            <br>
+
+            <div class="dashboard-buttons">
+
+                <a href="/add-item">
+                    <button>Add Item</button>
+                </a>
+
+                <a href="/items">
+                    <button>Search Items</button>
+                </a>
+
+                <a href="/notifications">
+    <button>
+        Notifications 🔔
+    </button>
+</a>
+
+                <a href="/profile">
+    <button>My Profile</button>
+</a>
+
+                <a href="/logout">
+                    <button>Logout</button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+<script src="/js/main.js"></script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Add Item</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+    <div class="container">
+
+        <form
+            action="/add-item"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            <h1>Add Item</h1>
+
+            <input
+                type="text"
+                name="item_name"
+                placeholder="Item Name"
+                required
+            >
+
+            <input
+                type="text"
+                name="category"
+                placeholder="Category"
+                required
+            >
+
+            <input
+                type="text"
+                name="location"
+                placeholder="Location"
+                required
+            >
+
+            <select name="status">
+
+                <option value="Lost">
+                    Lost
+                </option>
+
+                <option value="Found">
+                    Found
+                </option>
+
+            </select>
+
+            <textarea
+                name="description"
+                placeholder="Description"
+            ></textarea>
+
+            <input
+                type="file"
+                name="image"
+                required
+            >
+
+            <button type="submit">
+                Upload Item
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+<script src="/js/main.js"></script>
+</html>

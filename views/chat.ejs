@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Chat</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="chat-container">
+
+    <h1>Item Chat 💬</h1>
+
+    <div class="chat-box">
+
+        <% messages.forEach(msg => { %>
+
+            <div class="
+                message
+                <%= msg.sender_id == currentUser
+                    ? 'sent'
+                    : 'received'
+                %>
+            ">
+
+                <p>
+                    <%= msg.message %>
+                </p>
+
+                <span>
+                    <%= new Date(msg.created_at)
+                    .toLocaleString() %>
+                </span>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+    <!-- SEND MESSAGE -->
+
+    <form
+        action="/send-message"
+        method="POST"
+        class="chat-form"
+    >
+
+        <input
+            type="hidden"
+            name="receiver_id"
+            value="<%= receiverId %>"
+        >
+
+        <input
+            type="hidden"
+            name="item_id"
+            value="<%= itemId %>"
+        >
+
+        <input
+            type="text"
+            name="message"
+            placeholder="Type message..."
+            required
+        >
+
+        <button type="submit">
+            Send
+        </button>
+
+    </form>
+
+</div>
+
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

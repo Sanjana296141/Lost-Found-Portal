@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Item</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <form
+        action="/admin/update-item/<%= item.id %>"
+        method="POST"
+    >
+
+        <h1>Edit Item</h1>
+
+        <input
+            type="text"
+            name="item_name"
+            value="<%= item.item_name %>"
+        >
+
+        <input
+            type="text"
+            name="category"
+            value="<%= item.category %>"
+        >
+
+        <input
+            type="text"
+            name="location"
+            value="<%= item.location %>"
+        >
+
+        <input
+            type="text"
+            name="status"
+            value="<%= item.status %>"
+        >
+
+        <textarea
+            name="description"
+        ><%= item.description %></textarea>
+
+        <button type="submit">
+            Update Item
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>All Items</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="container">
+
+    <h1>Lost & Found Items 🔍</h1>
+
+    <!-- ADVANCED SEARCH -->
+
+    <form
+        action="/items"
+        method="GET"
+        class="advanced-search"
+    >
+
+        <!-- SEARCH -->
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search item..."
+        >
+
+        <!-- CATEGORY -->
+
+        <select name="category">
+
+            <option value="">
+                All Categories
+            </option>
+
+            <option value="Electronics">
+                Electronics
+            </option>
+
+            <option value="Wallet">
+                Wallet
+            </option>
+
+            <option value="ID Card">
+                ID Card
+            </option>
+
+            <option value="Bag">
+                Bag
+            </option>
+
+        </select>
+
+        <!-- LOCATION -->
+
+        <input
+            type="text"
+            name="location"
+            placeholder="Location"
+        >
+
+        <!-- STATUS -->
+
+        <select name="status">
+
+            <option value="">
+                All Status
+            </option>
+
+            <option value="Lost">
+                Lost
+            </option>
+
+            <option value="Found">
+                Found
+            </option>
+
+        </select>
+
+        <!-- SORT -->
+
+        <select name="sort">
+
+            <option value="newest">
+                Newest
+            </option>
+
+            <option value="oldest">
+                Oldest
+            </option>
+
+        </select>
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    <!-- ITEMS -->
+
+    <div class="card-container">
+
+        <% if(items.length > 0){ %>
+
+            <% items.forEach(item => { %>
+
+                <div class="item-card">
+
+                    <img
+                        src="/uploads/<%= item.image %>"
+                        alt="item"
+                    >
+
+                    <h2>
+                        <%= item.item_name %>
+                    </h2>
+
+                    <p>
+
+                        <strong>Category:</strong>
+
+                        <%= item.category %>
+
+                    </p>
+
+                    <p>
+
+                        <strong>Status:</strong>
+
+                        <%= item.status %>
+
+                    </p>
+
+                    <p>
+
+                        <strong>Location:</strong>
+
+                        <%= item.location %>
+
+                    </p>
+
+                    <a href="/item/<%= item.id %>">
+
+                        <button>
+                            View Details
+                        </button>
+
+                    </a>
+
+                </div>
+
+            <% }) %>
+
+        <% } else { %>
+
+            <!-- EMPTY STATE -->
+
+            <div class="empty-state">
+
+                <h2>
+                    No items found 😢
+                </h2>
+
+                <p>
+                    Try changing your search filters.
+                </p>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</div>
+
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

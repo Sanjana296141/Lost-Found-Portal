@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Lost Items</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/navbar") %>
+
+    <div class="container">
+
+        <h1>Lost Items</h1>
+
+        <div class="card-container">
+
+            <% items.forEach(item => { %>
+
+                <a href="/item/<%= item.id %>" class="card-link">
+
+                    <div class="item-card">
+
+                        <img
+                            src="/uploads/<%= item.image %>"
+                            alt="item"
+                        >
+
+                        <h2><%= item.item_name %></h2>
+
+                        <p><%= item.description %></p>
+
+                    </div>
+
+                </a>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

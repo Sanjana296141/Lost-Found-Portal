@@ -1,0 +1,47 @@
+<nav>
+
+    <h2>Lost & Found</h2>
+
+    <div class="nav-right">
+
+        <ul>
+
+            <% if(!user){ %>
+
+                <li>
+                    <a href="/">Home</a>
+                </li>
+
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+
+                <li>
+                    <a href="/register">Register</a>
+                </li>
+
+                <li>
+                    <a href="/admin/login" class="admin-link">
+                        Admin
+                    </a>
+                </li>
+
+            <% } else { %>
+
+                <li>
+                    <a href="/dashboard">
+                        Welcome, <%= user.name %> 👋
+                    </a>
+                </li>
+
+            <% } %>
+
+        </ul>
+
+        <button id="darkModeToggle">
+            🌙
+        </button>
+
+    </div>
+
+</nav>
